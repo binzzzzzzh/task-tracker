@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class TaskRepository {
     
     private final String FILE_PATH = "tasks.json";
+    private final Path path = Paths.get("tasks.json");
 
     public List<Task> loadTasks() {
         List<Task> tasks = new ArrayList<>();
@@ -23,6 +24,14 @@ public class TaskRepository {
     }
 
     public void saveTasks(List<Task> tasks) {
+        StringBuilder jsonBuild = new StringBuilder("[\n");
+        for (int i=0; i < tasks.size(); i++){
+            Task task = tasks.get(i);
+            jsonBuild.append("  {\n");
+            jsonBuild.append("    \"id\":").append(task.getId()).append(",\n");
+            jsonBuild.append("    ")
+        }
+        jsonBuild.append("\n]");
         // TODO: 1. Tạo một StringBuilder để chứa chuỗi JSON
         // TODO: 2. Dùng vòng lặp duyệt qua biến tasks
         // TODO: 3. Lắp ráp từng thuộc tính (id, description...) thành chuỗi định dạng JSON
