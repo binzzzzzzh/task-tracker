@@ -28,5 +28,6 @@ public class Task {
     public void setDescription(String description) {this.description = description;}
     public void setStatus(Status status) {this.status = status;}
     public void setUpdatedAt(LocalDateTime updatedAt) {this.updatedAt = updatedAt;}
+    public void setCreatedAt(LocalDateTime createdAt) {this.createdAt = createdAt;}
 
 }

@@ -4,12 +4,23 @@ import com.example.task_tracker.model.Task;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.ArrayList;
+import com.example.task_tracker.model.Status;
 
 public class TaskRepository {
     
     private final Path path = Paths.get("tasks.json");
+
+    private String getVal(String s, String begin, String end){
+        int start = s.indexOf(begin) + begin.length();
+        int en = s.indexOf(end, start);
+        if (en == -1){
+            en = s.indexOf("}", start);
+        }
+        return s.substring(start, en).trim();
+    }
 
     public List<Task> loadTasks() {
         List<Task> tasks = new ArrayList<>();
@@ -18,13 +29,26 @@ public class TaskRepository {
         }
         try {
             String json = Files.readString(path).trim();
+            if (json.length() <= 2){
+                return tasks;
+            }
+            String cont = json.substring(1, json.length()-1).trim();
+            String[] blocks = cont.split("},");
+            for (String block : blocks){
+                Task tak = new Task();
+
+                tak.setId(Integer.parseInt(getVal(block, "\"id\":", ",")));
+                tak.setDescription(getVal(block, "\"description\":\"", "\""));
+                tak.setStatus(Status.valueOf(getVal(block, "\"status\":\"", "\"")));
+                tak.setCreatedAt(LocalDateTime.parse(getVal(block, "\"createdAt\":\"", "\"")));
+                tak.setUpdatedAt(LocalDateTime.parse(getVal(block, "\"updatedAt\":\"", "\"")));
+                
+                tasks.add(tak);
+            }
             
+        } catch (Exception ex){
+            System.out.println("Loi doc file:" + ex.getMessage());
         }
-        // TODO: 1. Kiểm tra file có tồn tại không
-        // TODO: 2. Đọc toàn bộ nội dung file thành 1 chuỗi String (dùng Files.readString)
-        // TODO: 3. Viết thuật toán cắt chuỗi JSON đó ra để trích xuất dữ liệu
-        // TODO: 4. Tạo các Object Task và thêm vào biến tasks
-        
         return tasks;
     }
 
