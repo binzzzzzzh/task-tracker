@@ -47,7 +47,7 @@ public class TaskRepository {
             }
             
         } catch (Exception ex){
-            System.out.println("Loi doc file:" + ex.getMessage());
+            System.out.println("Loi doc file:");
         }
         return tasks;
     }
@@ -74,7 +74,7 @@ public class TaskRepository {
         try{
             Files.writeString(path, jsonBuild.toString());
         }catch (Exception ex){
-            System.out.println("Loi ghi file: " + ex.getMessage());
+            System.out.println("Loi ghi file: ");
         }
     }
 }
