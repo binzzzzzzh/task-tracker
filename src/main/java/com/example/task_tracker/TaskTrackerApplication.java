@@ -30,7 +30,7 @@ public class TaskTrackerApplication implements CommandLineRunner{
 						System.out.println("Loi: khong co noi dung task");
 						break;
 					}
-					taskserv.addTask(com);
+					taskserv.addTask(args[1]);
 					break;
 				case "update":
 					if (args.length < 3 || args.length > 3){
@@ -44,7 +44,7 @@ public class TaskTrackerApplication implements CommandLineRunner{
 						System.out.println("Loi: thieu id de xoa");
 						break;
 					}
-					taskserv.deleteTask(Integer.parseInt(args[1]));
+					taskserv.deleteTask(args[1]);
 					break;
 				case "mark-in-progress":
 					if (args.length < 2){
@@ -66,11 +66,11 @@ public class TaskTrackerApplication implements CommandLineRunner{
 						break;
 					}
 					String comm = args[1];
-					if (comm == "done"){
+					if (comm.equals("done")){
 						taskserv.listTask(Status.DONE);
-					} else if (comm == "todo"){
+					} else if (comm.equals("todo")){
 						taskserv.listTask(Status.TODO);
-					} else if (comm == "in-progress"){
+					} else if (comm.equals("in-progress")){
 						taskserv.listTask(Status.IN_PROGRESS);
 					} else {
 						System.out.println("Lenh ko hop le");

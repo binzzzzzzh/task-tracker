@@ -12,7 +12,7 @@ public class TaskService {
     private final List<Task> task;
 
     private int maxIdGenerate(){
-        int maxId = 1;
+        int maxId = 0;
         for (Task tak : task){
             if (maxId < tak.getId()){
                 maxId = tak.getId();
@@ -61,12 +61,18 @@ public class TaskService {
         }
     }
 
-    public void deleteTask(int d_id){
-        boolean remove = task.removeIf(tak -> tak.getId() == d_id);
-        System.out.println("Da xoa task thanh cong");
+    public void deleteTask(String d_id){
+        boolean remove = false;
+        if (d_id.equals("all")){
+            task.clear();
+            remove = true;
+        } else{
+            remove = task.removeIf(tak -> tak.getId() == Integer.parseInt(d_id));
+        }
         if (remove == false){
             System.out.println("Khong tim thay task");
         } else{
+            System.out.println("Da xoa task thanh cong");
             repos.saveTasks(task);
         }
     }
@@ -94,7 +100,7 @@ public class TaskService {
             return;
         }
         for (Task tak : task){
-            if (tak.getStatus() == null || tak.getStatus() == filter){
+            if (filter == null || tak.getStatus() == filter){
                 System.out.println("[" + tak.getId() + "]:" + tak.getDescription() + "------" +
                     "Creat: " + tak.getCreatedAt() + "------" + "Updated: " + tak.getUpdatedAt());
             }

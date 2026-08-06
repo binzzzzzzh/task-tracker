@@ -29,7 +29,7 @@ public class TaskRepository {
         }
         try {
             String json = Files.readString(path).trim();
-            if (json.length() <= 2){
+            if (json.length() <= 3){
                 return tasks;
             }
             String cont = json.substring(1, json.length()-1).trim();
@@ -47,7 +47,7 @@ public class TaskRepository {
             }
             
         } catch (Exception ex){
-            System.out.println("Loi doc file:");
+            System.out.println("Loi doc file");
         }
         return tasks;
     }
