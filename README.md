@@ -57,4 +57,4 @@ Use the `.\task-cli` command followed by your desired action:
 - `.\task-cli delete 1`
 - `.\task-cli delete all` to delete all tasks.
 
-#### Project inspired by the Roadmap.sh - Task Tracker backend learning path.
+#### Project inspired by the [Roadmap.sh - Task Tracker](https://roadmap.sh/projects/task-tracker) backend learning path.
