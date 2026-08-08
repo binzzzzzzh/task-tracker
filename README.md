@@ -27,7 +27,7 @@ Open your terminal at the root directory of the project and run the following co
 
 `.\mvnw clean package -DskipTests`
 
-If you can't compile the source code, Press `Window + R`, type `%temp%` then delete all the files in there, if a warning pop up, click `remember my choice` then `skip`. Use the command above to recompile.
+If you can't compile the source code, Press **Window + R**, type **%temp%** then delete all the files in there, if a warning pop up, click **remember my choice** then **skip**. Use the command above to recompile.
 
 ## Usage
 Use the `.\task-cli` command followed by your desired action:
