@@ -49,12 +49,12 @@ Use the `.\task-cli` command followed by your desired action:
 
 ### 4. Mark lists status:
 
-`.\task-cli mark-in-progress 1`
-`.\task-cli mark-done 1`
+- `.\task-cli mark-in-progress 1`
+- `.\task-cli mark-done 1`
 
 ### 5. Delete task:
 
-`.\task-cli delete 1`
-`.\task-cli delete all` to delete all tasks.
+- `.\task-cli delete 1`
+- `.\task-cli delete all` to delete all tasks.
 
 #### Project inspired by the Roadmap.sh - Task Tracker backend learning path.
