@@ -38,10 +38,10 @@ Use the `.\task-cli` command followed by your desired action:
 
 ### 2. List tasks:
 
-`.\task-cli list`
-`.\task-cli list done`
-`.\task-cli list todo`
-`.\task-cli list in-progress`
+- `.\task-cli list`
+- `.\task-cli list done`
+- `.\task-cli list todo`
+- `.\task-cli list in-progress`
 
 ### 3. Update a task description:
 
